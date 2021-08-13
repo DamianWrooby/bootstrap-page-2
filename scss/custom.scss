@@ -1,0 +1,148 @@
+$light: #f5e6ca;
+$dark: #343f56;
+$highlight1: #fb9300;
+$highlight2: #f54748;
+$font-family-base: "Alegreya Sans", sans-serif;
+
+$theme-colors: (
+	"light": $light,
+	"dark": $dark,
+	"highlight1": $highlight1,
+	"highlight2": $highlight2,
+);
+
+main {
+	overflow: hidden;
+}
+
+header {
+	display: unset;
+}
+
+header .navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav a.nav-link.active,
+header .navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav a.nav-link:focus {
+	color: $light;
+}
+
+nav.navbar-dark {
+	transition: all 0.1s ease-in-out;
+}
+
+header nav.navbar-dark.shrinked {
+	padding-top: 0.4rem !important;
+	padding-bottom: 0.4rem !important;
+	border-bottom: 2px solid $highlight2;
+}
+
+.divider {
+	position: relative;
+	height: 1px;
+}
+
+.div-transparent:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	height: 1px;
+	background-image: linear-gradient(
+		to right,
+		transparent,
+		$dark,
+		transparent
+	);
+}
+
+.div-arrow-down:after {
+	content: "";
+	position: absolute;
+	z-index: 1;
+	top: -7px;
+	left: calc(50% - 7px);
+	width: 14px;
+	height: 14px;
+	transform: rotate(45deg);
+	background-color: $light;
+	border-bottom: 1px solid $dark;
+	border-right: 1px solid $dark;
+}
+
+#birds {
+	position: absolute;
+	top: 0;
+	z-index: -2;
+	opacity: 0.7;
+}
+
+#portfolio {
+	.img-wrapper {
+		height: 100%;
+		background-color: $light;
+	}
+	i {
+		opacity: 0;
+		margin-left: -20px;
+		margin-top: -20px;
+	}
+	.img-wrapper:hover i {
+		opacity: 1;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		&:hover {
+			opacity: 0.2;
+		}
+	}
+	.modal-dialog {
+		display: flex;
+		align-items: center;
+		height: 90%;
+	}
+	.modal-content {
+		background-color: $light;
+	}
+}
+
+#about {
+	button:hover {
+		color: $light !important;
+	}
+}
+
+footer {
+	i::before {
+		transition: all 0.2s ease-in-out;
+	}
+	a:hover i::before {
+		transform: rotate(15deg);
+		color: $highlight2;
+	}
+}
+
+.bi.bi-arrow-up-circle-fill.position-fixed {
+	color: $highlight2;
+	right: 20px;
+	bottom: 20px;
+	visibility: hidden;
+	opacity: 0;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#back-to-top {
+	transition: all 0.3s ease-in-out;
+	&.visible {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";
